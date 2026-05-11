@@ -579,7 +579,7 @@
     }
 
     [class*="embeddedMessaging"] {
-      position: absolute !important;
+      position: fixed !important;
     }
 
     .embeddedMessagingConversationButton,
@@ -981,13 +981,13 @@
 
   <!-- SALESFORCE CHAT WIDGET -->
   <script type="text/javascript">
-    function overrideToAbsolute() {
+    function overrideToFixed() {
       document.querySelectorAll('[class*="embeddedMessaging"]').forEach(function(el) {
-        el.style.setProperty("position", "absolute", "important");
+        el.style.setProperty("position", "fixed", "important");
       });
     }
 
-    var observer = new MutationObserver(overrideToAbsolute);
+    var observer;
 
     function initEmbeddedMessaging() {
       try {
@@ -1002,6 +1002,7 @@
           }
         );
 
+        observer = new MutationObserver(overrideToFixed);
         observer.observe(document.body, {
           childList: true,
           subtree: true,
