@@ -578,16 +578,18 @@
       margin-top: 32px;
     }
 
+    [class*="embeddedMessaging"] {
+      position: absolute !important;
+    }
+
     .embeddedMessagingConversationButton,
     [class*="embeddedMessagingConversationButton"] {
-      position: absolute !important;
       right: 20px !important;
       bottom: 20px !important;
     }
 
     .embeddedMessagingFrame,
     [class*="embeddedMessagingFrame"] {
-      position: absolute !important;
       right: 20px !important;
       bottom: 84px !important;
     }
@@ -980,12 +982,12 @@
   <!-- SALESFORCE CHAT WIDGET -->
   <script type="text/javascript">
     function overrideToAbsolute() {
-      const button = document.querySelector(".embeddedMessagingConversationButton, [class*='embeddedMessagingConversationButton']");
-      const frame = document.querySelector(".embeddedMessagingFrame, [class*='embeddedMessagingFrame']");
-
-      if (button) button.style.setProperty("position", "absolute", "important");
-      if (frame) frame.style.setProperty("position", "absolute", "important");
+      document.querySelectorAll('[class*="embeddedMessaging"]').forEach(function(el) {
+        el.style.setProperty("position", "absolute", "important");
+      });
     }
+
+    var observer = new MutationObserver(overrideToAbsolute);
 
     function initEmbeddedMessaging() {
       try {
@@ -1000,8 +1002,12 @@
           }
         );
 
-        setTimeout(overrideToAbsolute, 1200);
-        setInterval(overrideToAbsolute, 1500);
+        observer.observe(document.body, {
+          childList: true,
+          subtree: true,
+          attributes: true,
+          attributeFilter: ["style", "class"]
+        });
       } catch (err) {
         console.error("Error loading Embedded Messaging: ", err);
       }
