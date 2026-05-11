@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>XS LATAM HUB</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --sf-blue: #0176d3;
+      --sf-blue-dark: #014486;
+      --sf-blue-deeper: #032d60;
+      --sf-blue-light: #e8f4fd;
+      --sf-text: #181818;
+      --sf-text-light: #444;
+      --sf-bg-section: #f3f7fb;
+      --sf-border: #d8e0e8;
+      --sf-yellow: #f4b942;
+    }
+
+    body {
+      font-family: 'Salesforce Sans', Arial, sans-serif;
+      color: var(--sf-text);
+      background: #fff;
+    }
+
+    /* NAV */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      height: 64px;
+      background: #fff;
+      border-bottom: 1px solid var(--sf-border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .nav-logo svg { width: 36px; height: 36px; }
+
+    .nav-logo span {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--sf-blue-deeper);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--sf-text);
+      padding: 8px 12px;
+      border-radius: 6px;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active { background: var(--sf-blue-light); color: var(--sf-blue); }
+
+    .nav-links .ai-partner-link a {
+      background: var(--sf-blue);
+      color: #fff;
+      border-radius: 20px;
+      padding: 8px 16px;
+    }
+
+    .nav-links .ai-partner-link a:hover { background: var(--sf-blue-dark); color: #fff; }
+
+    /* SECTIONS */
+    section { padding: 80px 40px; }
+    .container { max-width: 1140px; margin: 0 auto; }
+
+    /* HERO */
+    #home {
+      padding: 80px 40px 60px;
+      background: #fff;
+    }
+
+    .hero-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 48px;
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+
+    .hero-text { flex: 1; max-width: 560px; }
+
+    .hero-text h1 {
+      font-size: 42px;
+      font-weight: 800;
+      line-height: 1.15;
+      color: var(--sf-blue-deeper);
+      margin-bottom: 20px;
+    }
+
+    .hero-text h1 em {
+      font-style: normal;
+      color: var(--sf-blue);
+    }
+
+    .hero-text p {
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--sf-text-light);
+      margin-bottom: 28px;
+    }
+
+    .hero-text a.link-subtle {
+      display: block;
+      color: var(--sf-blue);
+      font-size: 14px;
+      text-decoration: underline;
+      margin-bottom: 28px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--sf-blue);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 14px 32px;
+      border-radius: 40px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .btn-primary:hover { background: var(--sf-blue-dark); }
+
+    .btn-secondary {
+      display: inline-block;
+      background: var(--sf-bg-section);
+      color: var(--sf-text);
+      font-size: 15px;
+      font-weight: 500;
+      padding: 14px 32px;
+      border-radius: 40px;
+      border: 1px solid var(--sf-border);
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .btn-secondary:hover { background: #e2ecf5; }
+
+    .hero-image {
+      flex: 1;
+      max-width: 480px;
+      background: linear-gradient(135deg, #0b3d91 0%, #1a6dcc 60%, #4db8ff 100%);
+      border-radius: 20px;
+      height: 380px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-image .stars {
+      position: absolute;
+      top: 20px; right: 30px;
+      font-size: 28px;
+    }
+
+    .hero-image .stars-bottom {
+      position: absolute;
+      bottom: 40px; left: 30px;
+      font-size: 22px;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 20px;
+    }
+
+    /* METRICS BANNER */
+    #metrics {
+      padding: 60px 40px;
+      background: #fff;
+    }
+
+    .metrics-header { text-align: center; margin-bottom: 48px; }
+
+    .metrics-header h2 {
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--sf-blue-deeper);
+    }
+
+    .metrics-header p {
+      font-size: 15px;
+      color: var(--sf-text-light);
+      margin-top: 8px;
+    }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+
+    .metric-card {
+      background: var(--sf-bg-section);
+      border-radius: 12px;
+      padding: 28px 24px;
+      border: 1px solid var(--sf-border);
+    }
+
+    .metric-card .number {
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--sf-blue);
+      margin-bottom: 10px;
+    }
+
+    .metric-card p { font-size: 14px; color: var(--sf-text-light); line-height: 1.5; }
+    .metric-card .source { font-size: 12px; color: #888; margin-top: 12px; }
+
+    /* CASOS DE SUCESSO */
+    #casos-de-sucesso {
+      background: var(--sf-bg-section);
+    }
+
+    .section-header { margin-bottom: 40px; }
+    .section-header h2 { font-size: 26px; font-weight: 700; color: var(--sf-blue-deeper); margin-bottom: 8px; }
+    .section-header p { font-size: 15px; color: var(--sf-text-light); }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-bottom: 40px;
+    }
+
+    .case-card {
+      background: #fff;
+      border-radius: 12px;
+      border: 1px solid var(--sf-border);
+      overflow: hidden;
+    }
+
+    .case-card-thumb {
+      background: linear-gradient(135deg, #032d60 0%, #0b5cb8 60%, #1a8cff 100%);
+      height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      position: relative;
+    }
+
+    .case-card-thumb .slide-label {
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .case-card-thumb .slide-label strong {
+      display: block;
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
+
+    .sf-logo-small {
+      position: absolute;
+      top: 12px; right: 12px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 8px;
+      padding: 4px 8px;
+      font-size: 11px;
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .case-card-body { padding: 20px; }
+    .case-tag { font-size: 12px; color: var(--sf-blue); font-weight: 600; margin-bottom: 8px; }
+    .case-card-body h3 { font-size: 16px; font-weight: 700; color: var(--sf-blue-deeper); margin-bottom: 8px; }
+    .case-card-body p { font-size: 14px; color: var(--sf-text-light); line-height: 1.5; margin-bottom: 12px; }
+    .case-card-body a { font-size: 14px; color: var(--sf-blue); text-decoration: none; }
+    .case-card-body a:hover { text-decoration: underline; }
+
+    .section-cta { text-align: center; }
+
+    /* FASES */
+    #vendas { background: #fff; }
+
+    .phases-header { text-align: center; margin-bottom: 48px; }
+    .phases-header h2 { font-size: 26px; font-weight: 700; color: var(--sf-blue-deeper); }
+
+    .phases-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .phase-item {}
+
+    .phase-circle {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--sf-blue);
+      color: #fff;
+      font-size: 24px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+    }
+
+    .phase-item h3 { font-size: 17px; font-weight: 700; color: var(--sf-blue); margin-bottom: 10px; }
+    .phase-item p { font-size: 14px; color: var(--sf-text-light); line-height: 1.5; margin-bottom: 12px; }
+    .phase-item a { font-size: 13px; color: var(--sf-blue); text-decoration: none; }
+    .phase-item a:hover { text-decoration: underline; }
+
+    /* OFERTAS */
+    #ofertas { background: var(--sf-bg-section); }
+
+    .offers-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .offer-card {
+      background: #fff;
+      border-radius: 12px;
+      border: 1px solid var(--sf-border);
+      padding: 24px;
+    }
+
+    .offer-card h3 { font-size: 15px; font-weight: 700; color: var(--sf-blue); margin-bottom: 10px; }
+    .offer-card p { font-size: 14px; color: var(--sf-text-light); line-height: 1.5; }
+
+    /* BIBLIOTECA */
+    #biblioteca { background: var(--sf-bg-section); }
+
+    .library-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-bottom: 40px;
+    }
+
+    .library-card {
+      background: #fff;
+      border-radius: 12px;
+      border: 1px solid var(--sf-border);
+      overflow: hidden;
+    }
+
+    .library-card-thumb {
+      background: linear-gradient(135deg, #032d60 0%, #0b5cb8 60%, #1a8cff 100%);
+      height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      position: relative;
+    }
+
+    .library-card-body { padding: 20px; }
+    .library-tag { font-size: 12px; color: var(--sf-blue); font-weight: 600; margin-bottom: 8px; }
+    .library-card-body h3 { font-size: 16px; font-weight: 700; color: var(--sf-blue-deeper); margin-bottom: 8px; }
+    .library-card-body p { font-size: 14px; color: var(--sf-text-light); }
+
+    /* QUEM SOMOS */
+    #quem-somos { background: #fff; }
+
+    .team-header { margin-bottom: 40px; }
+    .team-header h2 { font-size: 26px; font-weight: 700; color: var(--sf-blue-deeper); }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 28px;
+      margin-bottom: 40px;
+    }
+
+    .team-card { text-align: left; }
+
+    .team-avatar {
+      width: 100%;
+      height: 160px;
+      border-radius: 12px;
+      background: #e8f0f8;
+      margin-bottom: 14px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+      position: relative;
+    }
+
+    .team-avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+    .team-card h3 { font-size: 15px; font-weight: 700; color: var(--sf-blue); margin-bottom: 4px; }
+    .team-card .role { font-size: 13px; color: var(--sf-text-light); }
+    .team-card .lang { font-size: 13px; color: var(--sf-text-light); }
+
+    /* XS AI PARTNER BANNER */
+    #xs-ai-partner {
+      padding: 0 40px 80px;
+      background: #fff;
+    }
+
+    .ai-banner {
+      max-width: 1140px;
+      margin: 0 auto;
+      background: linear-gradient(135deg, #0b3d91 0%, #1a6dcc 60%, #4db8ff 100%);
+      border-radius: 20px;
+      padding: 60px 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ai-banner-text { color: #fff; max-width: 500px; }
+    .ai-banner-text h2 { font-size: 32px; font-weight: 800; margin-bottom: 16px; }
+    .ai-banner-text p { font-size: 15px; line-height: 1.6; margin-bottom: 28px; opacity: 0.9; }
+
+    .btn-outline-white {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 12px 28px;
+      border-radius: 40px;
+      border: 1.5px solid rgba(255,255,255,0.5);
+      cursor: pointer;
+      text-decoration: none;
+      backdrop-filter: blur(4px);
+      transition: background 0.2s;
+    }
+
+    .btn-outline-white:hover { background: rgba(255,255,255,0.25); }
+
+    .ai-banner-mascot {
+      font-size: 100px;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .ai-banner-stars {
+      position: absolute;
+      bottom: 30px; left: 50%;
+      font-size: 22px;
+      opacity: 0.8;
+    }
+
+    /* FALE CONOSCO */
+    #fale-conosco { background: var(--sf-bg-section); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .contact-info h2 { font-size: 26px; font-weight: 700; color: var(--sf-blue-deeper); margin-bottom: 16px; }
+    .contact-info p { font-size: 15px; color: var(--sf-text-light); line-height: 1.6; margin-bottom: 28px; }
+
+    .contact-form { background: #fff; border-radius: 12px; padding: 32px; border: 1px solid var(--sf-border); }
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; font-size: 13px; font-weight: 600; color: var(--sf-text); margin-bottom: 6px; }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid var(--sf-border);
+      border-radius: 8px;
+      font-size: 14px;
+      color: var(--sf-text);
+      background: #fff;
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--sf-blue);
+    }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+
+    /* CHAT WIDGET INLINE BUTTON */
+    .chat-trigger-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--sf-blue);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: 40px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .chat-trigger-btn:hover { background: var(--sf-blue-dark); }
+
+    .chat-trigger-btn svg {
+      width: 18px; height: 18px;
+    }
+
+    /* Ask Me Anything floating button (top-right, scrolls with page) */
+    .ask-me-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--sf-blue-deeper);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 10px 20px;
+      border-radius: 40px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s;
+      margin-left: auto;
+    }
+
+    .ask-me-btn:hover { background: var(--sf-blue-dark); }
+
+    /* FOOTER */
+    footer {
+      background: var(--sf-blue-deeper);
+      color: #fff;
+      text-align: center;
+      padding: 24px 40px;
+      font-size: 13px;
+      opacity: 0.9;
+    }
+
+    /* CHAT WIDGET CONTAINER */
+    #chat-widget-container {
+      margin-top: 32px;
+    }
+
+    .embeddedMessagingConversationButton,
+    [class*="embeddedMessagingConversationButton"] {
+      position: absolute !important;
+      right: 20px !important;
+      bottom: 20px !important;
+    }
+
+    .embeddedMessagingFrame,
+    [class*="embeddedMessagingFrame"] {
+      position: absolute !important;
+      right: 20px !important;
+      bottom: 84px !important;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .metrics-grid,
+      .phases-grid,
+      .offers-grid { grid-template-columns: repeat(2, 1fr); }
+      .cards-grid,
+      .library-grid,
+      .team-grid { grid-template-columns: repeat(2, 1fr); }
+      .contact-grid { grid-template-columns: 1fr; }
+      .hero-inner { flex-direction: column; }
+      .hero-image { max-width: 100%; width: 100%; }
+      .ai-banner { flex-direction: column; text-align: center; }
+      .nav-links { display: none; }
+    }
+
+    @media (max-width: 600px) {
+      .metrics-grid,
+      .phases-grid,
+      .offers-grid,
+      .cards-grid,
+      .library-grid,
+      .team-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#home" class="nav-logo">
+      <!-- Salesforce cloud logo SVG -->
+      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 10c2.5-2.7 6-4.4 9.9-4.4 5.2 0 9.7 3 12 7.4a13.9 13.9 0 0 1 2.1-.2c4.4 0 8 3.6 8 8s-3.6 8-8 8H10a8 8 0 1 1 2.7-15.5A11.8 11.8 0 0 1 20 10z" fill="#0176d3"/>
+      </svg>
+      <span>XS LATAM HUB</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#home" class="active">Home</a></li>
+      <li class="ai-partner-link"><a href="#xs-ai-partner">XS AI Partner</a></li>
+      <li><a href="#quem-somos">Quem somos</a></li>
+      <li><a href="#vendas">Venda</a></li>
+      <li><a href="#casos-de-sucesso">Casos de sucesso</a></li>
+      <li><a href="#ofertas">Ofertas</a></li>
+      <li><a href="#biblioteca">Biblioteca</a></li>
+      <li><a href="#fale-conosco">Fale conosco</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="home">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <h1>A tecnologia <em>prepara</em> o palco. Pessoas definem os <em>resultados.</em></h1>
+        <p>Quase 70% das transformações digitais falham por falta de adoção. Garanta o sucesso, a mitigação de riscos e o ROI do seu cliente na Era dos Agentes IA com Experience Services.</p>
+        <a href="#biblioteca" class="link-subtle">Acesse nossa biblioteca de materiais.</a>
+        <a href="#xs-ai-partner" class="btn-primary">Falar com XS AI Partner</a>
+      </div>
+      <div class="hero-image">
+        <img src="banner.png" alt="XS LATAM Hero" />
+      </div>
+    </div>
+  </section>
+
+  <!-- METRICS -->
+  <section id="metrics">
+    <div class="container">
+      <div class="metrics-header">
+        <h2>Por que o cliente deve investir em XS?</h2>
+        <p>Métricas comprovadas que transformam investimentos em resultados tangíveis e sustentáveis.</p>
+      </div>
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <div class="number">6x</div>
+          <p>Projetos têm até 6x mais chance de sucesso com gestão de mudança.</p>
+          <div class="source">Fonte: Prosci</div>
+        </div>
+        <div class="metric-card">
+          <div class="number">143%</div>
+          <p>Aumento médio nas taxas de adoção pelos funcionários após implementação XS.</p>
+          <div class="source">Fonte: Interna</div>
+        </div>
+        <div class="metric-card">
+          <div class="number">$1:$100</div>
+          <p>Cada $1 investido em UX gera $100 de retorno sobre o investimento (ROI).</p>
+          <div class="source">Fonte: Forrester</div>
+        </div>
+        <div class="metric-card">
+          <div class="number">50%</div>
+          <p>O design de experiência reduz o tempo de desenvolvimento em até 50%.</p>
+          <div class="source">Fonte: Toptal</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASOS DE SUCESSO -->
+  <section id="casos-de-sucesso">
+    <div class="container">
+      <div class="section-header">
+        <h2>Casos de sucesso</h2>
+        <p>Transformando desafios complexos em histórias de eficiência e crescimento.</p>
+      </div>
+      <div class="cards-grid">
+        <div class="case-card">
+          <div class="case-card-thumb">
+            <div class="slide-label">
+              <strong>Experience Services</strong>
+              First Call Deck FY27
+            </div>
+            <div class="sf-logo-small">salesforce</div>
+          </div>
+          <div class="case-card-body">
+            <div class="case-tag">Varejo</div>
+            <h3>Caso de sucesso 1</h3>
+            <p>Transformação digital com foco em adoção e engajamento de usuários finais.</p>
+            <a href="#fale-conosco">Falar com o especialista do projeto</a>
+          </div>
+        </div>
+        <div class="case-card">
+          <div class="case-card-thumb">
+            <div class="slide-label">
+              <strong>Experience Services</strong>
+              First Call Deck FY27
+            </div>
+            <div class="sf-logo-small">salesforce</div>
+          </div>
+          <div class="case-card-body">
+            <div class="case-tag">Varejo</div>
+            <h3>Caso de sucesso 2</h3>
+            <p>Gestão de mudança e capacitação para garantir 100% de adoção.</p>
+            <a href="#fale-conosco">Falar com o especialista do projeto</a>
+          </div>
+        </div>
+        <div class="case-card">
+          <div class="case-card-thumb">
+            <div class="slide-label">
+              <strong>Experience Services</strong>
+              First Call Deck FY27
+            </div>
+            <div class="sf-logo-small">salesforce</div>
+          </div>
+          <div class="case-card-body">
+            <div class="case-tag">Varejo</div>
+            <h3>Caso de sucesso 3</h3>
+            <p>Estratégia de comunicação e treinamento alinhados ao plano de rollout.</p>
+            <a href="#fale-conosco">Falar com o especialista do projeto</a>
+          </div>
+        </div>
+      </div>
+      <div class="section-cta">
+        <a href="#" class="btn-primary">Ver todos os cases</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- VENDAS / FASES -->
+  <section id="vendas">
+    <div class="container">
+      <div class="phases-header">
+        <h2>O que entregamos em cada fase?</h2>
+      </div>
+      <div class="phases-grid">
+        <div class="phase-item">
+          <div class="phase-circle">1</div>
+          <h3>Prepare</h3>
+          <p>Análise de Stakeholders, Taller LEVERS, Diagnóstico de Change Landscape.</p>
+          <a href="#">Veja exemplos</a>
+        </div>
+        <div class="phase-item">
+          <div class="phase-circle">2</div>
+          <h3>Design</h3>
+          <p>Avaliação de Impacto de Mudança, Estratégia de Capacitação e Comunicações.</p>
+          <a href="#">Veja exemplos</a>
+        </div>
+        <div class="phase-item">
+          <div class="phase-circle">3</div>
+          <h3>Deliver</h3>
+          <p>Execução do Plano de Gestão, Treinamento de Usuários Finais.</p>
+          <a href="#">Veja exemplos</a>
+        </div>
+        <div class="phase-item">
+          <div class="phase-circle">4</div>
+          <h3>Deploy</h3>
+          <p>Monitoramento de Adoção, Sessões de Feedback contínuo.</p>
+          <a href="#">Veja exemplos</a>
+        </div>
+      </div>
+      <div class="section-cta">
+        <a href="#" class="btn-secondary">Ver metodologia completa</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- OFERTAS -->
+  <section id="ofertas">
+    <div class="container">
+      <div class="section-header">
+        <h2>Nossos pacotes e serviços</h2>
+      </div>
+      <div class="offers-grid">
+        <div class="offer-card">
+          <h3>Agentic Enterprise Services (AES)</h3>
+          <p>Preparação estratégica para a era dos Agentes IA e automação inteligente.</p>
+        </div>
+        <div class="offer-card">
+          <h3>Build (Implementação)</h3>
+          <p>Co-entrega técnica e metodológica para garantir 100% de adoção.</p>
+        </div>
+        <div class="offer-card">
+          <h3>Optimize</h3>
+          <p>Análise profunda do estado atual e aplicação de melhores práticas globais.</p>
+        </div>
+        <div class="offer-card">
+          <h3>Get Started</h3>
+          <p>Fundações essenciais para adoção inicial e planejamento de Phase 0.</p>
+        </div>
+      </div>
+      <div class="section-cta">
+        <a href="#" class="btn-secondary">Ver catálogo completo</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BIBLIOTECA -->
+  <section id="biblioteca">
+    <div class="container">
+      <div class="section-header">
+        <h2>Biblioteca</h2>
+      </div>
+      <div class="library-grid">
+        <div class="library-card">
+          <div class="library-card-thumb">
+            <div class="slide-label" style="color:#fff; text-align:center; font-size:13px; font-weight:600;">
+              <strong style="display:block; font-size:16px; margin-bottom:4px;">Experience Services</strong>
+              First Call Deck FY27
+            </div>
+            <div class="sf-logo-small">salesforce</div>
+          </div>
+          <div class="library-card-body">
+            <div class="library-tag">Varejo</div>
+            <h3>FCD Experience Services</h3>
+            <p>Material de primeira conversa com o cliente sobre XS.</p>
+          </div>
+        </div>
+        <div class="library-card">
+          <div class="library-card-thumb">
+            <div class="slide-label" style="color:#fff; text-align:center; font-size:13px; font-weight:600;">
+              <strong style="display:block; font-size:16px; margin-bottom:4px;">Experience Services</strong>
+              First Call Deck FY27
+            </div>
+            <div class="sf-logo-small">salesforce</div>
+          </div>
+          <div class="library-card-body">
+            <div class="library-tag">Varejo</div>
+            <h3>FCD HCC</h3>
+            <p>Deck de primeira chamada para High Customer Complexity.</p>
+          </div>
+        </div>
+        <div class="library-card">
+          <div class="library-card-thumb">
+            <div class="slide-label" style="color:#fff; text-align:center; font-size:13px; font-weight:600;">
+              <strong style="display:block; font-size:16px; margin-bottom:4px;">Experience Services</strong>
+              First Call Deck FY27
+            </div>
+            <div class="sf-logo-small">salesforce</div>
+          </div>
+          <div class="library-card-body">
+            <div class="library-tag">Varejo</div>
+            <h3>FCD Experience Design</h3>
+            <p>Visão geral do design de experiência aplicado a projetos Salesforce.</p>
+          </div>
+        </div>
+      </div>
+      <div class="section-cta">
+        <a href="#" class="btn-primary">Ver biblioteca completa</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUEM SOMOS -->
+  <section id="quem-somos">
+    <div class="container">
+      <div class="team-header">
+        <h2>Nossa equipe</h2>
+      </div>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-avatar">👤</div>
+          <h3>Nome</h3>
+          <div class="role">Cargo</div>
+          <div class="lang">Línguas faladas</div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">👤</div>
+          <h3>Nome</h3>
+          <div class="role">Cargo</div>
+          <div class="lang">Línguas faladas</div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">👤</div>
+          <h3>Nome</h3>
+          <div class="role">Cargo</div>
+          <div class="lang">Línguas faladas</div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">👤</div>
+          <h3>Nome</h3>
+          <div class="role">Cargo</div>
+          <div class="lang">Línguas faladas</div>
+        </div>
+      </div>
+      <div class="section-cta">
+        <a href="#fale-conosco" class="btn-secondary">Fale conosco</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- XS AI PARTNER BANNER -->
+  <section id="xs-ai-partner">
+    <div class="container" style="max-width:1140px; margin:0 auto;">
+      <div class="ai-banner">
+        <div class="ai-banner-text">
+          <h2>XS AI Partner</h2>
+          <p>Crie propostas personalizadas, cruze casos de uso por indústria e gere um guia tático de persuasão em segundos com nosso Agente de IA.</p>
+          <button class="btn-outline-white chat-trigger-btn" onclick="openChat()">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+            Falar com XS AI Partner
+          </button>
+        </div>
+        <div class="ai-banner-mascot">🐻</div>
+        <span class="ai-banner-stars">✦ ✦ ✦</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FALE CONOSCO -->
+  <section id="fale-conosco">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h2>Fale conosco</h2>
+          <p>Entre em contato com nossa equipe LATAM. Estamos prontos para ajudar com propostas, dúvidas sobre metodologia ou qualquer outra necessidade.</p>
+          <div id="chat-widget-container">
+            <button class="chat-trigger-btn" onclick="openChat()">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
+              </svg>
+              Abrir chat XS AI Partner
+            </button>
+          </div>
+        </div>
+        <div class="contact-form">
+          <div class="form-group">
+            <label>Nome completo</label>
+            <input type="text" placeholder="Seu nome" />
+          </div>
+          <div class="form-group">
+            <label>E-mail</label>
+            <input type="email" placeholder="seu@email.com" />
+          </div>
+          <div class="form-group">
+            <label>Assunto</label>
+            <select>
+              <option>Selecione um assunto</option>
+              <option>Proposta comercial</option>
+              <option>Dúvida sobre metodologia</option>
+              <option>Caso de sucesso</option>
+              <option>Outro</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Mensagem</label>
+            <textarea placeholder="Descreva sua necessidade..."></textarea>
+          </div>
+          <button class="btn-primary" style="width:100%;">Enviar mensagem</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    XS LATAM | 2026
+  </footer>
+
+  <!-- SALESFORCE CHAT WIDGET -->
+  <script type="text/javascript">
+    function overrideToAbsolute() {
+      const button = document.querySelector(".embeddedMessagingConversationButton, [class*='embeddedMessagingConversationButton']");
+      const frame = document.querySelector(".embeddedMessagingFrame, [class*='embeddedMessagingFrame']");
+
+      if (button) button.style.setProperty("position", "absolute", "important");
+      if (frame) frame.style.setProperty("position", "absolute", "important");
+    }
+
+    function initEmbeddedMessaging() {
+      try {
+        embeddedservice_bootstrap.settings.language = "en_US";
+
+        embeddedservice_bootstrap.init(
+          "00DHn000007eDqr",
+          "XS_Web_Channel",
+          "https://storm-fabf55bd26c032.my.site.com/ESWXSWebChannel1776711122657",
+          {
+            scrt2URL: "https://storm-fabf55bd26c032.my.salesforce-scrt.com"
+          }
+        );
+
+        setTimeout(overrideToAbsolute, 1200);
+        setInterval(overrideToAbsolute, 1500);
+      } catch (err) {
+        console.error("Error loading Embedded Messaging: ", err);
+      }
+    }
+  </script>
+
+  <script
+    type="text/javascript"
+    src="https://storm-fabf55bd26c032.my.site.com/ESWXSWebChannel1776711122657/assets/js/bootstrap.min.js"
+    onload="initEmbeddedMessaging()">
+  </script>
+
+</body>
+</html>
