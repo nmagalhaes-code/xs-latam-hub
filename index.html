@@ -578,6 +578,38 @@
       margin-top: 32px;
     }
 
+    .chat-lang-label {
+      font-size: 14px;
+      color: var(--sf-text-light);
+      margin-bottom: 12px;
+    }
+
+    .chat-lang-buttons {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .chat-lang-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--sf-blue);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 10px 20px;
+      border-radius: 40px;
+      border: 2px solid var(--sf-blue);
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .chat-lang-btn:hover {
+      background: var(--sf-blue);
+      color: #fff;
+    }
+
     [class*="embeddedMessaging"] {
       position: fixed !important;
     }
@@ -937,12 +969,18 @@
           <h2>Fale conosco</h2>
           <p>Entre em contato com nossa equipe LATAM. Estamos prontos para ajudar com propostas, dúvidas sobre metodologia ou qualquer outra necessidade.</p>
           <div id="chat-widget-container">
-            <button class="chat-trigger-btn" onclick="openChat()">
-              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
-                <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
-              </svg>
-              Abrir chat XS AI Partner
-            </button>
+            <p class="chat-lang-label">Escolha o idioma para iniciar o chat:</p>
+            <div class="chat-lang-buttons">
+              <button class="chat-lang-btn" onclick="openChatWithLang('pt_BR')">
+                🇧🇷 Português
+              </button>
+              <button class="chat-lang-btn" onclick="openChatWithLang('es')">
+                🇪🇸 Español
+              </button>
+              <button class="chat-lang-btn" onclick="openChatWithLang('en_US')">
+                🇺🇸 English
+              </button>
+            </div>
           </div>
         </div>
         <div class="contact-form">
@@ -988,10 +1026,11 @@
     }
 
     var observer;
+    var chatInitialized = false;
 
-    function initEmbeddedMessaging() {
+    function initEmbeddedMessaging(lang) {
       try {
-        embeddedservice_bootstrap.settings.language = "en_US";
+        embeddedservice_bootstrap.settings.language = lang || "pt_BR";
 
         embeddedservice_bootstrap.init(
           "00DHn000007eDqr",
@@ -1009,16 +1048,37 @@
           attributes: true,
           attributeFilter: ["style", "class"]
         });
+
+        chatInitialized = true;
       } catch (err) {
         console.error("Error loading Embedded Messaging: ", err);
+      }
+    }
+
+    function openChatWithLang(lang) {
+      if (!chatInitialized) {
+        initEmbeddedMessaging(lang);
+        // Aguarda o widget renderizar antes de abrir
+        var attempts = 0;
+        var interval = setInterval(function() {
+          var btn = document.querySelector('.embeddedMessagingConversationButton');
+          if (btn) {
+            btn.click();
+            clearInterval(interval);
+          } else if (++attempts > 20) {
+            clearInterval(interval);
+          }
+        }, 300);
+      } else {
+        var btn = document.querySelector('.embeddedMessagingConversationButton');
+        if (btn) btn.click();
       }
     }
   </script>
 
   <script
     type="text/javascript"
-    src="https://storm-fabf55bd26c032.my.site.com/ESWXSWebChannel1776711122657/assets/js/bootstrap.min.js"
-    onload="initEmbeddedMessaging()">
+    src="https://storm-fabf55bd26c032.my.site.com/ESWXSWebChannel1776711122657/assets/js/bootstrap.min.js">
   </script>
 
 </body>
