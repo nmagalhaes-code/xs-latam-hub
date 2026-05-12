@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
   <title>XS LATAM HUB</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -573,59 +573,6 @@
       opacity: 0.9;
     }
 
-    /* CHAT WIDGET CONTAINER */
-    #chat-widget-container {
-      margin-top: 32px;
-    }
-
-    .chat-lang-label {
-      font-size: 14px;
-      color: rgba(255,255,255,0.8);
-      margin-bottom: 12px;
-      margin-top: 20px;
-    }
-
-    .chat-lang-buttons {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .chat-lang-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: transparent;
-      color: #fff;
-      font-size: 14px;
-      font-weight: 600;
-      padding: 10px 20px;
-      border-radius: 40px;
-      border: 2px solid rgba(255,255,255,0.7);
-      cursor: pointer;
-      transition: background 0.2s, border-color 0.2s;
-    }
-
-    .chat-lang-btn:hover {
-      background: rgba(255,255,255,0.15);
-      border-color: #fff;
-    }
-
-    [class*="embeddedMessaging"] {
-      position: fixed !important;
-    }
-
-    .embeddedMessagingConversationButton,
-    [class*="embeddedMessagingConversationButton"] {
-      right: 20px !important;
-      bottom: 20px !important;
-    }
-
-    .embeddedMessagingFrame,
-    [class*="embeddedMessagingFrame"] {
-      right: 20px !important;
-      bottom: 84px !important;
-    }
 
     /* RESPONSIVE */
     @media (max-width: 900px) {
@@ -947,68 +894,25 @@
   </footer>
 
   <!-- SALESFORCE CHAT WIDGET -->
-  <script type="text/javascript">
-    function overrideToFixed() {
-      document.querySelectorAll('[class*="embeddedMessaging"]').forEach(function(el) {
-        el.style.setProperty("position", "fixed", "important");
-      });
-    }
-
-    var observer;
-    var chatInitialized = false;
-
-    function initEmbeddedMessaging(lang) {
+  <script type='text/javascript'>
+    function initEmbeddedMessaging() {
       try {
-        embeddedservice_bootstrap.settings.language = lang || "pt_BR";
+        embeddedservice_bootstrap.settings.language = 'en_US';
 
         embeddedservice_bootstrap.init(
-          "00DHn000007eDqr",
-          "XS_Web_Channel",
-          "https://storm-fabf55bd26c032.my.site.com/ESWXSWebChannel1776711122657",
+          '00DHn000007eDqr',
+          'XS_Web_Channel',
+          'https://storm-fabf55bd26c032.my.site.com/ESWXSWebChannel1776711122657',
           {
-            scrt2URL: "https://storm-fabf55bd26c032.my.salesforce-scrt.com"
+            scrt2URL: 'https://storm-fabf55bd26c032.my.salesforce-scrt.com'
           }
         );
-
-        observer = new MutationObserver(overrideToFixed);
-        observer.observe(document.body, {
-          childList: true,
-          subtree: true,
-          attributes: true,
-          attributeFilter: ["style", "class"]
-        });
-
-        chatInitialized = true;
       } catch (err) {
-        console.error("Error loading Embedded Messaging: ", err);
+        console.error('Error loading Embedded Messaging: ', err);
       }
-    }
-
-    function openChatWithLang(lang) {
-      if (!chatInitialized) {
-        initEmbeddedMessaging(lang);
-        // Aguarda o widget renderizar antes de abrir
-        var attempts = 0;
-        var interval = setInterval(function() {
-          var btn = document.querySelector('.embeddedMessagingConversationButton');
-          if (btn) {
-            btn.click();
-            clearInterval(interval);
-          } else if (++attempts > 20) {
-            clearInterval(interval);
-          }
-        }, 300);
-      } else {
-        var btn = document.querySelector('.embeddedMessagingConversationButton');
-        if (btn) btn.click();
-      }
-    }
+    };
   </script>
-
-  <script
-    type="text/javascript"
-    src="https://storm-fabf55bd26c032.my.site.com/ESWXSWebChannel1776711122657/assets/js/bootstrap.min.js">
-  </script>
+  <script type='text/javascript' src='https://storm-fabf55bd26c032.my.site.com/ESWXSWebChannel1776711122657/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 
 </body>
 </html>
