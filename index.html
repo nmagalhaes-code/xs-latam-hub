@@ -485,7 +485,7 @@
     }
 
     /* FALE CONOSCO */
-    #fale-conosco { background: var(--sf-bg-section); }
+    #xs-ai-partner { background: var(--sf-bg-section); }
 
     .contact-grid {
       display: grid;
@@ -580,8 +580,9 @@
 
     .chat-lang-label {
       font-size: 14px;
-      color: var(--sf-text-light);
+      color: rgba(255,255,255,0.8);
       margin-bottom: 12px;
+      margin-top: 20px;
     }
 
     .chat-lang-buttons {
@@ -595,19 +596,19 @@
       align-items: center;
       gap: 8px;
       background: transparent;
-      color: var(--sf-blue);
+      color: #fff;
       font-size: 14px;
       font-weight: 600;
       padding: 10px 20px;
       border-radius: 40px;
-      border: 2px solid var(--sf-blue);
+      border: 2px solid rgba(255,255,255,0.7);
       cursor: pointer;
-      transition: background 0.2s, color 0.2s;
+      transition: background 0.2s, border-color 0.2s;
     }
 
     .chat-lang-btn:hover {
-      background: var(--sf-blue);
-      color: #fff;
+      background: rgba(255,255,255,0.15);
+      border-color: #fff;
     }
 
     [class*="embeddedMessaging"] {
@@ -670,7 +671,7 @@
       <li><a href="#casos-de-sucesso">Casos de sucesso</a></li>
       <li><a href="#ofertas">Ofertas</a></li>
       <li><a href="#biblioteca">Biblioteca</a></li>
-      <li><a href="#fale-conosco">Fale conosco</a></li>
+      <li><a href="#xs-ai-partner">Fale conosco</a></li>
     </ul>
   </nav>
 
@@ -741,7 +742,7 @@
             <div class="case-tag">Varejo</div>
             <h3>Caso de sucesso 1</h3>
             <p>Transformação digital com foco em adoção e engajamento de usuários finais.</p>
-            <a href="#fale-conosco">Falar com o especialista do projeto</a>
+            <a href="#xs-ai-partner">Falar com o especialista do projeto</a>
           </div>
         </div>
         <div class="case-card">
@@ -756,7 +757,7 @@
             <div class="case-tag">Varejo</div>
             <h3>Caso de sucesso 2</h3>
             <p>Gestão de mudança e capacitação para garantir 100% de adoção.</p>
-            <a href="#fale-conosco">Falar com o especialista do projeto</a>
+            <a href="#xs-ai-partner">Falar com o especialista do projeto</a>
           </div>
         </div>
         <div class="case-card">
@@ -771,7 +772,7 @@
             <div class="case-tag">Varejo</div>
             <h3>Caso de sucesso 3</h3>
             <p>Estratégia de comunicação e treinamento alinhados ao plano de rollout.</p>
-            <a href="#fale-conosco">Falar com o especialista do projeto</a>
+            <a href="#xs-ai-partner">Falar com o especialista do projeto</a>
           </div>
         </div>
       </div>
@@ -938,7 +939,7 @@
         </div>
       </div>
       <div class="section-cta">
-        <a href="#fale-conosco" class="btn-secondary">Fale conosco</a>
+        <a href="#xs-ai-partner" class="btn-secondary">Fale conosco</a>
       </div>
     </div>
   </section>
@@ -950,10 +951,12 @@
         <div class="ai-banner-text">
           <h2>XS AI Partner</h2>
           <p>Crie propostas personalizadas, cruze casos de uso por indústria e gere um guia tático de persuasão em segundos com nosso Agente de IA.</p>
-          <button class="btn-outline-white chat-trigger-btn" onclick="openChat()">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
-            Falar com XS AI Partner
-          </button>
+          <p class="chat-lang-label">Escolha o idioma para iniciar o chat:</p>
+          <div class="chat-lang-buttons">
+            <button class="chat-lang-btn" onclick="openChatWithLang('pt_BR')">🇧🇷 Português</button>
+            <button class="chat-lang-btn" onclick="openChatWithLang('es')">🇪🇸 Español</button>
+            <button class="chat-lang-btn" onclick="openChatWithLang('en_US')">🇺🇸 English</button>
+          </div>
         </div>
         <div class="ai-banner-mascot">🐻</div>
         <span class="ai-banner-stars">✦ ✦ ✦</span>
@@ -961,56 +964,6 @@
     </div>
   </section>
 
-  <!-- FALE CONOSCO -->
-  <section id="fale-conosco">
-    <div class="container">
-      <div class="contact-grid">
-        <div class="contact-info">
-          <h2>Fale conosco</h2>
-          <p>Entre em contato com nossa equipe LATAM. Estamos prontos para ajudar com propostas, dúvidas sobre metodologia ou qualquer outra necessidade.</p>
-          <div id="chat-widget-container">
-            <p class="chat-lang-label">Escolha o idioma para iniciar o chat:</p>
-            <div class="chat-lang-buttons">
-              <button class="chat-lang-btn" onclick="openChatWithLang('pt_BR')">
-                🇧🇷 Português
-              </button>
-              <button class="chat-lang-btn" onclick="openChatWithLang('es')">
-                🇪🇸 Español
-              </button>
-              <button class="chat-lang-btn" onclick="openChatWithLang('en_US')">
-                🇺🇸 English
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="contact-form">
-          <div class="form-group">
-            <label>Nome completo</label>
-            <input type="text" placeholder="Seu nome" />
-          </div>
-          <div class="form-group">
-            <label>E-mail</label>
-            <input type="email" placeholder="seu@email.com" />
-          </div>
-          <div class="form-group">
-            <label>Assunto</label>
-            <select>
-              <option>Selecione um assunto</option>
-              <option>Proposta comercial</option>
-              <option>Dúvida sobre metodologia</option>
-              <option>Caso de sucesso</option>
-              <option>Outro</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Mensagem</label>
-            <textarea placeholder="Descreva sua necessidade..."></textarea>
-          </div>
-          <button class="btn-primary" style="width:100%;">Enviar mensagem</button>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- FOOTER -->
   <footer>
